@@ -1,0 +1,14 @@
+extends layout
+block content
+  .container
+    .card
+      .card-body
+        h4.card-title #{account.username} Infomation
+        p.card-text Email: #{account.email}
+        p.card-text Last login: #{account.last_login}
+        hr
+        h4.car-title List hostname
+        each hostname, i in hostnames
+          p.card-text #{i+1}.  #{hostname.name}.#{hostname.domainname}
+        hr
+        a.btn.btn-success(href="/users/"+account.username+"/changepass") Change Password

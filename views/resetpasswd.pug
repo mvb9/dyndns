@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title DynDNS
+    meta(charset="utf-8")
+    meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport")
+    link(rel="stylesheet", href="/css/material-dashboard.css")
+    link(rel="stylesheet", href="/css/style.css")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css", type="text/css")
+  body
+    .container
+      .main-div
+        form(method="post", action="/users/resetpasswd")
+          h3 Reset Password
+          .form-group
+            label Email
+            input.form-control(type='email', name='email')
+          button.btn.btn-success(type='submit') Reset

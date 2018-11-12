@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .container
+      .row
+        .col-lg-9
+          table.table
+            thead
+              tr
+                th #
+                th Hostname
+                th Domain
+                th Last Update
+                th IP
+            tbody
+            each hostname, i in hostnames
+              tr
+                td #{i+1}      
+                td #{hostname.name}
+                td #{hostname.domainname}
+                if moment(hostname.last_updated).isValid()
+                  td #{moment(hostname.last_updated).format('DD/MM/YYYY hh:mm:ss')} 
+                else
+                  td Not Updated
+                td #{hostname.ip}
+                td.td-actions.text-center
+                  a(href="/hostnames/delete/"+hostname.id)
+                    i.material-icons delete
+        .col-lg-auto
+          form(action="/hostnames/add", method="post")
+            .form-group
+              label Host Name
+              input.form-control(name='name', type='text')
+            .form-group
+              label Domain
+              select.form-control(name="domain")
+                each domain, i in domains
+                  option(value=domain.id) #{domain.domainname}
+            .form-inline.ml-auto
+              button.btn.btn-success(type='submit') Add Host

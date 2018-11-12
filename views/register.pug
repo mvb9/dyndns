@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title DynDNS
+    meta(charset="utf-8")
+    meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport")
+    link(rel="stylesheet", href="/css/material-dashboard.css")
+    link(rel="stylesheet", href="/css/style.css")
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css", type="text/css")
+  body
+    .container
+      .main-div
+        form(action="/register", method="post")
+          h3 Register Account   
+          if success_msg
+            p #{success_msg}
+          if error_msg
+            p #{error_msg}
+          if error
+            p #{error}
+          .form-group
+              label Username
+              input.form-control(type='text', name='name')
+          .form-group
+              label Email
+              input.form-control(type='email', name='email')
+          .form-group
+              label(for='inputPassword4') Password
+              input#inputPassword4.form-control(type='password', name='password')
+          .form-group
+              label(for='inputPassword4') Confirm Password
+              input#inputPassword4.form-control(type='password', name='password2')    
+          .form-group          
+            .form-inline.form-row.ml-auto
+              .col
+                p Have an account?
+                a(href='/login') Login 
+              .col.justify-content-right
+                button.btn.btn-success(type='submit') Register

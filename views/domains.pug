@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-lg-8
+        table.table
+          thead
+            tr
+              th #
+              th Name
+              th Created At
+          tbody
+          each domain, i in domains
+            tr
+              td #{i+1}      
+              td 
+                a(href="/domains/"+domain.id) #{domain.domainname}
+              td #{moment(domain.created).format('DD/MM/YYYY')}
+              td.td-actions.text-center
+                a(href="/domains/delete/"+domain.id)
+                  i.material-icons delete
+      .col-lg-auto
+        form(action="/domains/add", method="post")
+          .form-group
+            label Domain Name 
+            input.form-control(name='domainname', type='text')
+          .form-group
+            button.btn.btn-success(type='submit') Add Domain
+
+  

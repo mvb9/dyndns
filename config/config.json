@@ -1,0 +1,19 @@
+{
+  "db":{
+      "host": "127.0.0.1",
+      "port": 3306,
+      "database": "dyndns",
+      "user": "root",
+      "password": "123654"
+    },
+  "etcd":{
+      "hostname": "192.168.85.129"
+  },
+  "smtp":{
+    "smtp_server": "",
+    "user": "",
+    "secure": false,
+    "password": "",
+    "sender":""
+  }
+}

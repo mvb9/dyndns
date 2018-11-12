@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+      table.table
+        thead
+          tr
+            th #
+            th Username
+            th Email
+            th Last Login
+            th Admin
+            th 
+              a.btn.btn-success(href="/users/add") Add User
+        tbody
+        each account, i in users
+          tr
+            td #{i+1}      
+            td 
+              a(href="/users/"+account.username) #{account.username}
+            td #{account.email}
+            if moment(account.last_login).isValid()
+              td #{moment(account.last_login).format()}
+            else
+              td Not login
+            td #{account.isadmin}
+            td.td-actions.text-center
+              a(href="/users/delete/"+account.id)
+                i.material-icons delete 

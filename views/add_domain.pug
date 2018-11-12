@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+    form(action="/domains/add", method="post")
+      .form-group
+        label Domain Name
+        input(name='domainname', type='text')
+      .form-group.justify-content-flex-start
+        button.btn.btn-success(type='submit') Add

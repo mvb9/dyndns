@@ -1,0 +1,23 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-success
+  .container
+    a.navbar-brand(href='/') DynDNS
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse
+      ul.navbar-nav
+        if(user.isadmin==1)
+          li.nav-item
+            a.nav-link(href='/domains') Domain
+        li.nav-item
+          a.nav-link(href='/hostnames') Hostname
+        if(user.isadmin==1)
+          li.nav-item
+            a.nav-link(href='/users') User
+    #navbarNavDropdown.collapse.navbar-collapse.justify-content-end
+      ul.navbar-nav
+        li.nav-item.dropdown
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            | #{user.username}
+          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            a.dropdown-item(href="/users/"+ user.username) Account Information
+            a.dropdown-item(href='/logout') Logout

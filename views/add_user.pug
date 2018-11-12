@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .container
+    .main-div
+      form(action="/users/add", method="post")
+        h3 Add Account   
+        .container
+          if success_msg
+            p #{success_msg}
+          if error_msg
+            p #{error_msg}
+          if error
+            p #{error}
+        .form-group
+          label Username
+          input.form-control(type='text', name='name')
+        .form-group
+          label Email
+          input.form-control(type='email', name='email')
+        .form-group
+          label(for='inputPassword4') Password
+          input#inputPassword4.form-control(type='password', name='password')
+        .form-group
+          label(for='inputPassword4') Confirm Password
+          input#inputPassword4.form-control(type='password', name='password2')    
+        
+        .form-check
+          label.form-check-label
+            input.form-check-input(type="checkbox", name="isadmin" value="1")
+            | Is Administrator
+            span.form-check-sign
+              span.check         
+        .form-inline.ml-auto
+          button.btn.btn-success(type='submit') Add
