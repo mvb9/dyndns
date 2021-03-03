@@ -10,7 +10,7 @@
   "author": "VietBM <vietbm9@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": ">=5.0.0",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "convict": "^4.4.0",
